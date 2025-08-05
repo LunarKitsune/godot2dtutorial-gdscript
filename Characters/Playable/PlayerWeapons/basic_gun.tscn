@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4qq5xgptsnm"]
+
+[ext_resource type="Texture2D" uid="uid://cswb5do8rrj7q" path="res://Imported Assets/2d-project-start/pistol/pistol.png" id="1_jfary"]
+[ext_resource type="Script" uid="uid://dkrjqhfp1lcdj" path="res://Characters/Playable/PlayerWeapons/basic_gun.gd" id="1_ujlqi"]
+[ext_resource type="PackedScene" uid="uid://bvkrsyfyg0a7d" path="res://Characters/Playable/PlayerWeapons/AmmoTypes/basic_bullet.tscn" id="2_n82nu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ujlqi"]
+radius = 217.589
+
+[node name="BasicGun" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_ujlqi")
+bulletType = ExtResource("2_n82nu")
+
+[node name="GunRange" type="CollisionShape2D" parent="."]
+position = Vector2(100, 2)
+rotation = -0.765625
+shape = SubResource("CircleShape2D_ujlqi")
+debug_color = Color(0.180392, 0.631373, 0, 0.419608)
+
+[node name="WeaponPivot" type="Marker2D" parent="."]
+position = Vector2(0, -1)
+rotation = -0.0145309
+
+[node name="Pistol" type="Sprite2D" parent="WeaponPivot"]
+position = Vector2(105.974, 2.54011)
+texture = ExtResource("1_jfary")
+
+[node name="BulletSpawnPoint" type="Marker2D" parent="WeaponPivot/Pistol"]
+position = Vector2(25.1572, -10.6356)
+
+[node name="FireRate" type="Timer" parent="."]

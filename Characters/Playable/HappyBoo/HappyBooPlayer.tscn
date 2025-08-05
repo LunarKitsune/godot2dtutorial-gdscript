@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://dvhbxpmtkd6kj"]
+
+[ext_resource type="PackedScene" uid="uid://b6kp7dkspu32p" path="res://Characters/Playable/HappyBoo/happy_boo.tscn" id="1_4pbs3"]
+[ext_resource type="Script" uid="uid://cy5ffbk68fa5w" path="res://Characters/Playable/HappyBoo/Scripts/happy_boo_player.gd" id="1_5fwcw"]
+[ext_resource type="PackedScene" uid="uid://c4qq5xgptsnm" path="res://Characters/Playable/PlayerWeapons/basic_gun.tscn" id="4_jntbo"]
+[ext_resource type="PackedScene" uid="uid://djxja1xt1uopr" path="res://Characters/healthBar.tscn" id="4_vvdcf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4pbs3"]
+radius = 59.0762
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jntbo"]
+size = Vector2(90, 108)
+
+[node name="PlayerHappyBoo" type="CharacterBody2D" groups=["CharacterPlayable"]]
+collision_mask = 3
+script = ExtResource("1_5fwcw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -42)
+shape = SubResource("CircleShape2D_4pbs3")
+
+[node name="HappyBoo" parent="." instance=ExtResource("1_4pbs3")]
+position = Vector2(-1, 5)
+
+[node name="VulnerabilityBox" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VulnerabilityBox"]
+position = Vector2(-3, -39)
+shape = SubResource("RectangleShape2D_jntbo")
+debug_color = Color(0.847164, 0, 0.108075, 0.419608)
+
+[node name="BasicGun" parent="." instance=ExtResource("4_jntbo")]
+y_sort_enabled = true
+position = Vector2(0, -30)
+
+[node name="PlayerView" type="Camera2D" parent="."]
+
+[node name="HealthManager" parent="." instance=ExtResource("4_vvdcf")]
+position = Vector2(-2, -115)

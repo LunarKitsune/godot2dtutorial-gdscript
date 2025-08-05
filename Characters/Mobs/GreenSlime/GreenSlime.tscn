@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://ce0va11wwm5k5"]
+
+[ext_resource type="Script" uid="uid://bsfmmf54oq0a5" path="res://Characters/Mobs/GreenSlime/green_slime.gd" id="1_17gx7"]
+[ext_resource type="PackedScene" uid="uid://ogik4s70pgwl" path="res://Imported Assets/2d-project-start/characters/slime/slime.tscn" id="1_44q2a"]
+[ext_resource type="Script" uid="uid://c28hf6wbl0v8" path="res://Imported Assets/2d-project-start/characters/slime/SlimeAnimator.gd" id="2_ab38p"]
+[ext_resource type="PackedScene" uid="uid://djxja1xt1uopr" path="res://Characters/healthBar.tscn" id="4_gxjq8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gxjq8"]
+radius = 54.037
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_30tjn"]
+radius = 63.0317
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_17gx7"]
+radius = 409.001
+
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["EnemyMob"]]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_17gx7")
+hp = 15
+maxHp = 15
+speed = 150.0
+attack_power = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -26)
+shape = SubResource("CircleShape2D_gxjq8")
+
+[node name="Slime" parent="." instance=ExtResource("1_44q2a")]
+script = ExtResource("2_ab38p")
+
+[node name="HurtBox" type="Area2D" parent="Slime" groups=["CharacterPlayable"]]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slime/HurtBox" groups=["EnemyMob"]]
+position = Vector2(1, -28)
+shape = SubResource("CircleShape2D_30tjn")
+debug_color = Color(0.87451, 0.223529, 0.14902, 0.419608)
+
+[node name="Detector" type="Area2D" parent="."]
+collision_mask = 3
+
+[node name="DetectionRange" type="CollisionShape2D" parent="Detector"]
+visible = false
+position = Vector2(1, -21)
+shape = SubResource("CircleShape2D_17gx7")
+debug_color = Color(0.980392, 0.85098, 0.215686, 0.419608)
+
+[node name="HealthManager" parent="." instance=ExtResource("4_gxjq8")]
+position = Vector2(-3, -124)
+
+[connection signal="body_entered" from="Slime/HurtBox" to="." method="On_Target_Hit"]
+[connection signal="body_entered" from="Detector" to="." method="On_Target_Detected"]
+[connection signal="body_exited" from="Detector" to="." method="On_Target_Lost"]

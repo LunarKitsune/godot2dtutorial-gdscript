@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvkrsyfyg0a7d"]
+
+[ext_resource type="Texture2D" uid="uid://dftkbqwsfd68r" path="res://Imported Assets/2d-project-start/pistol/projectile.png" id="1_82pf1"]
+[ext_resource type="Script" uid="uid://gmj8lob3ysdu" path="res://Characters/Playable/PlayerWeapons/AmmoTypes/basic_bullet.gd" id="1_qg8wp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qg8wp"]
+radius = 12.0
+
+[node name="Basic Bullet" type="Area2D" groups=["PlayerProjectile"]]
+collision_mask = 2
+script = ExtResource("1_qg8wp")
+speed = 200.0
+damage_power = 5
+bullet_range = 500.0
+
+[node name="Projectile" type="Sprite2D" parent="."]
+position = Vector2(10, -3)
+texture = ExtResource("1_82pf1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(21, -2)
+shape = SubResource("CircleShape2D_qg8wp")
+debug_color = Color(1.8049e-06, 0.646641, 0.23201, 0.42)
+
+[connection signal="body_entered" from="." to="." method="On_Target_Collision"]
