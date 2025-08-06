@@ -123,7 +123,6 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_71vdi"]
 resource_name = "idle"
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -164,7 +163,6 @@ tracks/2/keys = {
 [sub_resource type="Animation" id="Animation_l6fy2"]
 resource_name = "walk"
 length = 0.4
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true

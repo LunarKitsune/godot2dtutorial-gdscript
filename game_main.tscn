@@ -1,11 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://bg1cu4jc5d02i"]
+[gd_scene load_steps=5 format=3 uid="uid://bg1cu4jc5d02i"]
 
+[ext_resource type="Script" uid="uid://dlhyopex5ik12" path="res://game_main.gd" id="1_lbacn"]
 [ext_resource type="PackedScene" uid="uid://ctwne5ov0kyhs" path="res://Enviornment/Forest/Pine_Tree.tscn" id="1_tjf8n"]
 [ext_resource type="PackedScene" uid="uid://dvhbxpmtkd6kj" path="res://Characters/Playable/HappyBoo/HappyBooPlayer.tscn" id="2_tjf8n"]
 [ext_resource type="PackedScene" uid="uid://ce0va11wwm5k5" path="res://Characters/Mobs/GreenSlime/GreenSlime.tscn" id="3_3ticj"]
 
 [node name="GameMain" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_lbacn")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 
@@ -21,11 +23,11 @@ position = Vector2(144, 252)
 [node name="PineTree3" parent="." instance=ExtResource("1_tjf8n")]
 position = Vector2(814, 201)
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("3_3ticj")]
-position = Vector2(842, 88)
+[node name="GreenSlime" parent="." instance=ExtResource("3_3ticj")]
+position = Vector2(648, 11)
 
-[node name="CharacterBody2D2" parent="." instance=ExtResource("3_3ticj")]
-position = Vector2(1088, 423)
+[node name="GreenSlime2" parent="." instance=ExtResource("3_3ticj")]
+position = Vector2(795, 477)
 
-[node name="CharacterBody2D3" parent="." instance=ExtResource("3_3ticj")]
-position = Vector2(918, -177)
+[node name="GreenSlime3" parent="." instance=ExtResource("3_3ticj")]
+position = Vector2(-184, 16)

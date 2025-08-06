@@ -14,16 +14,16 @@ func _ready():
 	pass
 
 func _process(delta):
-	print(targets)
 	pass
 
 func _physics_process(delta):
 	Get_Target_Direction()
 	
-	if(velocity.length() > 0 or velocity.length() < 0):
-		$Slime.play_animation("walk")
-	else:
-		$Slime.play_animation("idle")
+	if not $Slime/EntityAnimationPlayer.current_animation == "hurt":
+		if(velocity.length() > 0 or velocity.length() < 0):
+			$Slime.play_animation("walk")
+		else:
+			$Slime.play_animation("idle")
 		
 	move_and_slide()
 	
@@ -60,7 +60,6 @@ func Get_Target_Direction():
 
 func On_Target_Hit(target_body:Node2D) ->void:
 	if(target_body.has_method("Take_Damage") and target_body.is_in_group("CharacterPlayable")):
-		print("HIT")
 		target_body.Take_Damage(attack_power)
 
 func Destroy_Mob():
@@ -69,7 +68,9 @@ func Destroy_Mob():
 
 func Take_Damage(damageTaken:int):
 	hp -= damageTaken
+	$Slime.play_animation("hurt", true, "walk")
 	$HealthManager.emit_signal("On_Health_Change",hp)
+	
 	if hp <= 0:
 		Destroy_Mob()
 		

@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dvhbxpmtkd6kj"]
+[gd_scene load_steps=8 format=3 uid="uid://dvhbxpmtkd6kj"]
 
 [ext_resource type="PackedScene" uid="uid://b6kp7dkspu32p" path="res://Characters/Playable/HappyBoo/happy_boo.tscn" id="1_4pbs3"]
 [ext_resource type="Script" uid="uid://cy5ffbk68fa5w" path="res://Characters/Playable/HappyBoo/Scripts/happy_boo_player.gd" id="1_5fwcw"]
 [ext_resource type="PackedScene" uid="uid://c4qq5xgptsnm" path="res://Characters/Playable/PlayerWeapons/basic_gun.tscn" id="4_jntbo"]
 [ext_resource type="PackedScene" uid="uid://djxja1xt1uopr" path="res://Characters/healthBar.tscn" id="4_vvdcf"]
+[ext_resource type="Script" uid="uid://wtma7x55452w" path="res://Characters/Playable/HappyBoo/invincibility_timer.gd" id="5_vvdcf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4pbs3"]
 radius = 59.0762
@@ -39,3 +40,8 @@ position = Vector2(0, -30)
 
 [node name="HealthManager" parent="." instance=ExtResource("4_vvdcf")]
 position = Vector2(-2, -115)
+
+[node name="InvincibilityTimer" type="Timer" parent="."]
+script = ExtResource("5_vvdcf")
+
+[connection signal="activate_timer" from="InvincibilityTimer" to="InvincibilityTimer" method="Play_Timer"]

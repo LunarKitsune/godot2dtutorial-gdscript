@@ -4,6 +4,8 @@ extends CharacterBody2D
 @export var max_hp:int
 @export var speed:float
 
+var invincibility_on:bool = false
+const invincibilityRate:float = 5.0
 
 func _ready():
 	hp = 30
@@ -18,7 +20,8 @@ func _process(delta):
 	else:
 		$HappyBoo.play_animation("idle")
 		
-	print("player hp: ",hp)
+	if($InvincibilityTimer.is_stopped()):
+		invincibility_on = false
 
 
 func _physics_process(delta):
@@ -32,11 +35,14 @@ func Get_Input() -> Vector2:
 
 
 func Take_Damage(damageTaken:int) ->void:
-	hp -= damageTaken
-	$HealthManager.emit_signal("On_Health_Change", hp)
-	if(hp <= 0):
-		queue_free()
-		
+	if not invincibility_on:
+		hp -= damageTaken
+		$HealthManager.emit_signal("On_Health_Change", hp)
+		$InvincibilityTimer.emit_signal("activate_timer")
+		invincibility_on = true
+		if(hp <= 0):
+			queue_free()
+
 
 func On_Weapon_Pickup() -> void:
 	pass
