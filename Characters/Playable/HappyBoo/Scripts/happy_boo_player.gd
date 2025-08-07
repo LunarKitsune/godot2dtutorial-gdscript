@@ -10,11 +10,14 @@ const invincibilityRate:float = 5.0
 func _ready():
 	hp = 30
 	max_hp =30
-	speed = 400
+	speed = 300
 	$HealthManager.emit_signal("On_Health_initialization",hp,max_hp)
+	
+	
 
 
 func _process(delta):
+	
 	if(velocity.length() > 0 || velocity.length() < 0):
 		$HappyBoo.play_animation("walk")
 	else:
@@ -41,7 +44,9 @@ func Take_Damage(damageTaken:int) ->void:
 		$InvincibilityTimer.emit_signal("activate_timer")
 		invincibility_on = true
 		if(hp <= 0):
-			queue_free()
+			visible = false
+			process_mode = Node.PROCESS_MODE_DISABLED
+			
 
 
 func On_Weapon_Pickup() -> void:

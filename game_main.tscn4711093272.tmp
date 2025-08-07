@@ -9,16 +9,11 @@
 [node name="GameMain" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_lbacn")
-game_over_scene = ExtResource("5_hyuye")
-
-[node name="GameOver" parent="." instance=ExtResource("5_hyuye")]
-
-[node name="PlayerHappyBoo" parent="." instance=ExtResource("2_tjf8n")]
-position = Vector2(419, 254)
-
-[node name="PlayerTracker" type="Marker2D" parent="."]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+
+[node name="PlayerHappyBoo" parent="." instance=ExtResource("2_tjf8n")]
+position = Vector2(285, 210)
 
 [node name="PineTree" parent="." instance=ExtResource("1_tjf8n")]
 position = Vector2(420, -60)
@@ -38,5 +33,4 @@ position = Vector2(795, 477)
 [node name="GreenSlime3" parent="." instance=ExtResource("3_3ticj")]
 position = Vector2(-184, 16)
 
-[connection signal="child_exiting_tree" from="." to="." method="On_Player_Destroyed"]
-[connection signal="child_exiting_tree" from="PlayerTracker" to="." method="On_Player_Deleted"]
+[node name="GameOver" parent="." instance=ExtResource("5_hyuye")]

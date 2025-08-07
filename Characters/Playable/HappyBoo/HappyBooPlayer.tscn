@@ -36,12 +36,12 @@ debug_color = Color(0.847164, 0, 0.108075, 0.419608)
 y_sort_enabled = true
 position = Vector2(0, -30)
 
-[node name="PlayerView" type="Camera2D" parent="."]
-
 [node name="HealthManager" parent="." instance=ExtResource("4_vvdcf")]
 position = Vector2(-2, -115)
 
 [node name="InvincibilityTimer" type="Timer" parent="."]
 script = ExtResource("5_vvdcf")
+
+[node name="PlayerView" type="Camera2D" parent="."]
 
 [connection signal="activate_timer" from="InvincibilityTimer" to="InvincibilityTimer" method="Play_Timer"]

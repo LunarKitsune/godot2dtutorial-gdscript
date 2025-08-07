@@ -21,7 +21,7 @@ script = ExtResource("1_17gx7")
 hp = 15
 maxHp = 15
 speed = 150.0
-attack_power = 5
+attack_power = 200
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -26)

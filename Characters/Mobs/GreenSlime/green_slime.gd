@@ -11,7 +11,7 @@ var targets: Array[Node2D]
 
 func _ready():
 	$HealthManager.emit_signal("On_Health_initialization",maxHp, hp)
-	pass
+	attack_power = 500
 
 func _process(delta):
 	pass

@@ -22,7 +22,6 @@ func _process(delta):
 	pass
 	
 func _physics_process(delta):
-	shooting_point_ref = $WeaponPivot/Pistol/BulletSpawnPoint
 	Point_Rotation()
 	Check_fire_ready()
 	Fire_Projectile()
@@ -34,6 +33,7 @@ func Point_Rotation() -> void:
 
 func Fire_Projectile() -> void:
 	if Input.is_action_just_pressed("p_weapon_fire") and ready_to_fire:
+		shooting_point_ref = $WeaponPivot/Pistol/BulletSpawnPoint
 		rate_fire_limiter.start()
 		ready_to_fire = false
 		var created_bullet = bulletType.instantiate()

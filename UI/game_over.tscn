@@ -1,0 +1,82 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6ptu0imhwod8"]
+
+[ext_resource type="Script" uid="uid://blfkvyt38xv1e" path="res://UI/btn_try_again.gd" id="1_3y5qq"]
+[ext_resource type="Script" uid="uid://befglfswwe8al" path="res://UI/game_over.gd" id="1_wruqd"]
+[ext_resource type="Script" uid="uid://bcnmugiskwk1o" path="res://UI/btn_quit.gd" id="3_phit2"]
+
+[node name="GameOver" type="Control"]
+top_level = true
+visibility_layer = 4
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 8
+script = ExtResource("1_wruqd")
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+anchor_left = 0.510978
+anchor_top = 0.614286
+anchor_right = 0.54491
+anchor_bottom = 0.478571
+offset_left = -251.0
+offset_top = -137.0
+offset_right = 235.0
+offset_bottom = 181.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.490196, 0.490196, 0.490196, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_left = -249.0
+offset_top = -138.0
+offset_right = 250.0
+offset_bottom = -48.0
+
+[node name="GameOverLabel" type="Label" parent="CenterContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 33
+text = "GAME OVER"
+
+[node name="DeathDescript" type="Label" parent="."]
+layout_mode = 0
+offset_left = -326.0
+offset_top = -192.0
+offset_right = -171.0
+offset_bottom = -154.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CenterContainer2" type="CenterContainer" parent="."]
+layout_mode = 2
+offset_left = -250.0
+offset_top = -74.0
+offset_right = 237.0
+offset_bottom = 183.0
+
+[node name="GameOverOptionHolder" type="VBoxContainer" parent="CenterContainer2"]
+layout_mode = 2
+
+[node name="btn_try_again" type="Button" parent="CenterContainer2/GameOverOptionHolder"]
+layout_mode = 2
+text = "Try Again"
+script = ExtResource("1_3y5qq")
+metadata/_edit_use_anchors_ = true
+
+[node name="btn_quit" type="Button" parent="CenterContainer2/GameOverOptionHolder"]
+layout_mode = 2
+text = "Quit"
+script = ExtResource("3_phit2")
+metadata/_edit_use_anchors_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="pressed" from="CenterContainer2/GameOverOptionHolder/btn_try_again" to="CenterContainer2/GameOverOptionHolder/btn_try_again" method="On_Retry_Pressed"]
+[connection signal="pressed" from="CenterContainer2/GameOverOptionHolder/btn_quit" to="CenterContainer2/GameOverOptionHolder/btn_quit" method="On_Btn_Quit"]
