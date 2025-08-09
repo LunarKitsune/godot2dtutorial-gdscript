@@ -11,7 +11,7 @@ func _ready():
 	hp = 30
 	max_hp =30
 	speed = 300
-	$HealthManager.emit_signal("On_Health_initialization",hp,max_hp)
+	#$HealthManager.emit_signal("On_Health_initialization",hp,max_hp)
 	
 	
 
@@ -44,8 +44,9 @@ func Take_Damage(damageTaken:int) ->void:
 		$InvincibilityTimer.emit_signal("activate_timer")
 		invincibility_on = true
 		if(hp <= 0):
-			visible = false
-			process_mode = Node.PROCESS_MODE_DISABLED
+			pass
+			#visible = false
+			#process_mode = Node.PROCESS_MODE_DISABLED
 			
 
 

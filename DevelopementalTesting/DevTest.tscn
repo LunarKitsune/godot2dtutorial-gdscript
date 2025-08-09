@@ -1,24 +1,37 @@
-[gd_scene load_steps=3 format=3 uid="uid://davt0i05xyply"]
+[gd_scene load_steps=6 format=3 uid="uid://davt0i05xyply"]
 
 [ext_resource type="PackedScene" uid="uid://dvhbxpmtkd6kj" path="res://Characters/Playable/HappyBoo/HappyBooPlayer.tscn" id="1_slox0"]
+[ext_resource type="PackedScene" uid="uid://c6ptu0imhwod8" path="res://UI/GameOver/game_over.tscn" id="2_cxeuo"]
 [ext_resource type="PackedScene" uid="uid://ctwne5ov0kyhs" path="res://Enviornment/Forest/Pine_Tree.tscn" id="2_hodn4"]
+[ext_resource type="Script" uid="uid://d046uohml7q8p" path="res://DevelopementalTesting/characters.gd" id="2_qhsu6"]
+[ext_resource type="PackedScene" uid="uid://ce0va11wwm5k5" path="res://Characters/Mobs/GreenSlime/GreenSlime.tscn" id="5_ifkhc"]
 
 [node name="DevTest" type="Node2D"]
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_slox0")]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="GameOver" parent="." instance=ExtResource("2_cxeuo")]
+
+[node name="Characters" type="Node2D" parent="."]
+script = ExtResource("2_qhsu6")
+
+[node name="CharacterBody2D" parent="Characters" instance=ExtResource("1_slox0")]
 position = Vector2(3, 3)
 
-[node name="PineTree" parent="." instance=ExtResource("2_hodn4")]
+[node name="PineTree" parent="Characters" instance=ExtResource("2_hodn4")]
 position = Vector2(374, -285)
 
-[node name="PineTree2" parent="." instance=ExtResource("2_hodn4")]
+[node name="PineTree2" parent="Characters" instance=ExtResource("2_hodn4")]
 position = Vector2(-286, -302)
 
-[node name="PineTree3" parent="." instance=ExtResource("2_hodn4")]
-position = Vector2(434, 196)
-
-[node name="PineTree4" parent="." instance=ExtResource("2_hodn4")]
+[node name="PineTree4" parent="Characters" instance=ExtResource("2_hodn4")]
 position = Vector2(-295, 184)
 
-[node name="PineTree5" parent="." instance=ExtResource("2_hodn4")]
+[node name="PineTree3" parent="Characters" instance=ExtResource("2_hodn4")]
+position = Vector2(434, 196)
+
+[node name="PineTree5" parent="Characters" instance=ExtResource("2_hodn4")]
 position = Vector2(547, -294)
+
+[node name="GreenSlime" parent="Characters" instance=ExtResource("5_ifkhc")]
+position = Vector2(391, -29)

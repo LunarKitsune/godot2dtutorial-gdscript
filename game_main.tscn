@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bg1cu4jc5d02i"]
+[gd_scene load_steps=7 format=3 uid="uid://bg1cu4jc5d02i"]
 
 [ext_resource type="Script" uid="uid://dlhyopex5ik12" path="res://game_main.gd" id="1_lbacn"]
 [ext_resource type="PackedScene" uid="uid://ctwne5ov0kyhs" path="res://Enviornment/Forest/Pine_Tree.tscn" id="1_tjf8n"]
 [ext_resource type="PackedScene" uid="uid://dvhbxpmtkd6kj" path="res://Characters/Playable/HappyBoo/HappyBooPlayer.tscn" id="2_tjf8n"]
 [ext_resource type="PackedScene" uid="uid://ce0va11wwm5k5" path="res://Characters/Mobs/GreenSlime/GreenSlime.tscn" id="3_3ticj"]
-[ext_resource type="PackedScene" uid="uid://c6ptu0imhwod8" path="res://UI/game_over.tscn" id="5_hyuye"]
+[ext_resource type="PackedScene" uid="uid://c6ptu0imhwod8" path="res://UI/GameOver/game_over.tscn" id="5_hyuye"]
+[ext_resource type="PackedScene" uid="uid://luwd1p46jk6e" path="res://UI/InfoBar/player_info_bar.tscn" id="6_33xix"]
 
 [node name="GameMain" type="Node2D"]
 y_sort_enabled = true
@@ -15,8 +16,6 @@ game_over_scene = ExtResource("5_hyuye")
 
 [node name="PlayerHappyBoo" parent="." instance=ExtResource("2_tjf8n")]
 position = Vector2(419, 254)
-
-[node name="PlayerTracker" type="Marker2D" parent="."]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 
@@ -38,5 +37,6 @@ position = Vector2(795, 477)
 [node name="GreenSlime3" parent="." instance=ExtResource("3_3ticj")]
 position = Vector2(-184, 16)
 
+[node name="PlayerInfoBar" parent="." instance=ExtResource("6_33xix")]
+
 [connection signal="child_exiting_tree" from="." to="." method="On_Player_Destroyed"]
-[connection signal="child_exiting_tree" from="PlayerTracker" to="." method="On_Player_Deleted"]
