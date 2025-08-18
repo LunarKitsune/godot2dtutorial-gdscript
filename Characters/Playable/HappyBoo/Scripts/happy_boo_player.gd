@@ -34,7 +34,7 @@ func Get_Input() -> Vector2:
 	return inputDirection * speed
 
 
-func Take_Damage(damageTaken:int, killer:CharacterBody2D) ->string:
+func Take_Damage(damageTaken:int) ->void:
 		if not invincibility_on:
 			hp -= damageTaken
 			$PlayerInfoBar.emit_signal("Detect_HP_Change",damageTaken)
@@ -42,9 +42,6 @@ func Take_Damage(damageTaken:int, killer:CharacterBody2D) ->string:
 			
 		if(hp <= 0):
 			queue_free()
-			#visible = false
-			#process_mode = Node.PROCESS_MODE_DISABLED
-			
 
 
 func On_Weapon_Pickup() -> void:
