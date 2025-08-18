@@ -5,7 +5,6 @@ var GDRand:RandomNumberGenerator
 @export var game_over_scene:PackedScene
 
 func _ready():
-	0
 	pass
 
 
@@ -14,5 +13,6 @@ func Spawn_Mobs():
 	
 	
 func On_Player_Deleted(Target:Node)->void:
-	
-	pass
+	if Target.is_in_group("CharacterPlayable"):
+		$GameOver.visible = true
+		

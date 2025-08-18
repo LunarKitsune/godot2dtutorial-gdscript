@@ -11,13 +11,10 @@ func _ready():
 	hp = 30
 	max_hp =30
 	speed = 300
-	#$HealthManager.emit_signal("On_Health_initialization",hp,max_hp)
+	$PlayerInfoBar.emit_signal("Set_HP_Bar", max_hp)
 	
-	
-
 
 func _process(delta):
-	
 	if(velocity.length() > 0 || velocity.length() < 0):
 		$HappyBoo.play_animation("walk")
 	else:
@@ -37,14 +34,14 @@ func Get_Input() -> Vector2:
 	return inputDirection * speed
 
 
-func Take_Damage(damageTaken:int) ->void:
-	if not invincibility_on:
-		hp -= damageTaken
-		$HealthManager.emit_signal("On_Health_Change", hp)
-		$InvincibilityTimer.emit_signal("activate_timer")
-		invincibility_on = true
+func Take_Damage(damageTaken:int, killer:CharacterBody2D) ->string:
+		if not invincibility_on:
+			hp -= damageTaken
+			$PlayerInfoBar.emit_signal("Detect_HP_Change",damageTaken)
+			invincibility_on = true
+			
 		if(hp <= 0):
-			pass
+			queue_free()
 			#visible = false
 			#process_mode = Node.PROCESS_MODE_DISABLED
 			

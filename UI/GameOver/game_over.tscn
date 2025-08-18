@@ -11,9 +11,10 @@ metadata/_edit_group_ = true
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_top = -30.0
-offset_right = 68.0
-offset_bottom = 10.0
+offset_left = -93.0
+offset_top = -44.0
+offset_right = -25.0
+offset_bottom = -4.0
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
 layout_mode = 1
@@ -58,10 +59,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="CenterContainer2" type="CenterContainer" parent="Control"]
 layout_mode = 0
-offset_left = 353.0
-offset_top = 236.0
-offset_right = 840.0
-offset_bottom = 493.0
+offset_left = 355.0
+offset_top = 241.0
+offset_right = 842.0
+offset_bottom = 498.0
 
 [node name="GameOverOptionHolder" type="VBoxContainer" parent="Control/CenterContainer2"]
 layout_mode = 2

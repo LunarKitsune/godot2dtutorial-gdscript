@@ -1,9 +1,8 @@
 extends CanvasLayer
 
-func _process(delta):
-	#rememebr the button is T
-	if Input.is_action_just_pressed("MenuToggleDebug"):
-		if visible == true:
-			visible= false
-		else:
-			visible = true
+signal Throw_Death_Message(message:String)
+
+func Build_Death_Message(PlayerKiller:String) -> void:
+	var death_msg:String = "Player died to: {str}"
+	death_msg.format("str", PlayerKiller)
+	$Control/DeathDescript.text = death_msg

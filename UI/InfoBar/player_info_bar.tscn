@@ -1,25 +1,65 @@
-[gd_scene load_steps=4 format=3 uid="uid://luwd1p46jk6e"]
+[gd_scene load_steps=5 format=3 uid="uid://luwd1p46jk6e"]
 
+[ext_resource type="Script" uid="uid://c5sy3bl3iy1v" path="res://UI/InfoBar/player_info_bar.gd" id="1_maqp0"]
 [ext_resource type="PackedScene" uid="uid://dkspuf1dqieib" path="res://UI/HealthDisplay/Health_Display_GUI.tscn" id="1_odxdn"]
 [ext_resource type="Texture2D" uid="uid://b2ent6mf1y7w7" path="res://Imported Assets/2d-project-start/characters/happy_boo/square_ref.png" id="1_xqf6f"]
-[ext_resource type="PackedScene" uid="uid://dhe1ful33f57u" path="res://UI/AmmoCountDisplay.tscn" id="3_maqp0"]
+[ext_resource type="PackedScene" uid="uid://dhe1ful33f57u" path="res://UI/Ammo/AmmoCountDisplay.tscn" id="3_maqp0"]
 
 [node name="PlayerInfoBar" type="CanvasLayer"]
+script = ExtResource("1_maqp0")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-offset_left = -1.0
-offset_top = 498.0
-offset_right = 1150.0
-offset_bottom = 655.0
-theme_override_constants/separation = 400
-alignment = 1
+[node name="AmmoCountDisplay" parent="." instance=ExtResource("3_maqp0")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 939.0
+offset_top = 485.0
+offset_right = 1152.0
+offset_bottom = 638.0
 
-[node name="HealthDisplayGui" parent="HBoxContainer" instance=ExtResource("1_odxdn")]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
-layout_mode = 2
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 547.0
+offset_top = 516.0
+offset_right = 675.0
+offset_bottom = 647.0
 texture = ExtResource("1_xqf6f")
 
-[node name="AmmoCountDisplay" parent="HBoxContainer" instance=ExtResource("3_maqp0")]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = -1
+anchor_left = 2.925
+anchor_top = 14.462
+anchor_right = 2.925
+anchor_bottom = 14.462
+offset_left = -3372.6
+offset_top = -8865.38
+offset_right = -3090.6
+offset_bottom = -8755.38
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 0
+
+[node name="HealthDisplayGui" parent="MarginContainer" instance=ExtResource("1_odxdn")]
+unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchor_left = 0.558
+anchor_top = 1.0
+anchor_right = 0.558
+anchor_bottom = 1.0
+offset_left = -643.816
+offset_top = -647.0
+offset_right = -603.816
+offset_bottom = -607.0
+size_flags_horizontal = 4
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Control"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 519.0
+offset_right = 964.0
+offset_bottom = 559.0

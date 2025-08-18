@@ -4,14 +4,19 @@ extends CharacterBody2D
 @export var maxHp:int
 @export var speed:float
 @export var attack_power:int
+@export var mobtype:String
 
 ## Player targets for slime to find
 var targets: Array[Node2D]
 
+signal Admit_Murdering_Player
 
 func _ready():
+	Admit_Murdering_Player.connect(GetMobName)
+	
+	mobtype = "Green Slime"
 	$HealthManager.emit_signal("On_Health_initialization",maxHp, hp)
-	attack_power = 500
+	attack_power = 5
 
 func _process(delta):
 	pass
@@ -74,4 +79,5 @@ func Take_Damage(damageTaken:int):
 	if hp <= 0:
 		Destroy_Mob()
 		
-		
+func GetMobName() -> String:
+	return name
