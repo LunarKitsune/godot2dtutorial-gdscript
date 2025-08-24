@@ -24,6 +24,12 @@ window/stretch/aspect="expand"
 
 project/assembly_name="Godot2dTutorial-gdscript"
 
+[file_customization]
+
+folder_colors={
+"res://testPNGs/": "orange"
+}
+
 [global_group]
 
 PlayerProjectile=""

@@ -13,6 +13,7 @@ game_over_scene = ExtResource("5_hyuye")
 
 [node name="PlayerHappyBoo" parent="." instance=ExtResource("2_tjf8n")]
 position = Vector2(419, 254)
+gunSlots = [null, null, null]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 

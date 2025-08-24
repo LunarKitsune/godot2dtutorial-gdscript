@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c5sy3bl3iy1v" path="res://UI/InfoBar/player_info_bar.gd" id="1_maqp0"]
 [ext_resource type="PackedScene" uid="uid://dkspuf1dqieib" path="res://UI/HealthDisplay/Health_Display_GUI.tscn" id="1_odxdn"]
-[ext_resource type="Texture2D" uid="uid://b2ent6mf1y7w7" path="res://Imported Assets/2d-project-start/characters/happy_boo/square_ref.png" id="1_xqf6f"]
+[ext_resource type="Texture2D" uid="uid://c46id8g5gimds" path="res://UI/InfoBar/HappyBooUIExpressionSheet/HappyBooInfoSpriteSheet.png" id="3_dek3m"]
 [ext_resource type="PackedScene" uid="uid://dhe1ful33f57u" path="res://UI/Ammo/AmmoCountDisplay.tscn" id="3_maqp0"]
 
 [node name="PlayerInfoBar" type="CanvasLayer"]
@@ -22,7 +22,7 @@ offset_left = 547.0
 offset_top = 516.0
 offset_right = 675.0
 offset_bottom = 647.0
-texture = ExtResource("1_xqf6f")
+texture = ExtResource("3_dek3m")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = -1

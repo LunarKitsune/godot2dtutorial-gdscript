@@ -3,9 +3,10 @@ extends CharacterBody2D
 @export var hp:int
 @export var max_hp:int
 @export var speed:float
+@export var gunSlots:Array
 
 var invincibility_on:bool = false
-const invincibilityRate:float = 5.0
+const invincibilityRate:float = 1.15
 
 func _ready():
 	hp = 30
@@ -35,10 +36,11 @@ func Get_Input() -> Vector2:
 
 
 func Take_Damage(damageTaken:int) ->void:
-		if not invincibility_on:
+		if invincibility_on == false:
 			hp -= damageTaken
 			$PlayerInfoBar.emit_signal("Detect_HP_Change",damageTaken)
 			invincibility_on = true
+			$InvincibilityTimer.start(invincibilityRate)
 			
 		if(hp <= 0):
 			queue_free()

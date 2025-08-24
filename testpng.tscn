@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7ed62urxk685"]
+
+[ext_resource type="Texture2D" uid="uid://dpwo6sy8qo6b3" path="res://testPNGs/AsperiteTest.png" id="1_ap7rh"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="AsperiteTest" type="Sprite2D" parent="."]
+position = Vector2(2, -4)
+texture = ExtResource("1_ap7rh")
